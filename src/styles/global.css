@@ -1,0 +1,10 @@
+body {
+  background-color: aliceblue;
+}
+
+.slick-prev:before {
+  color: #f8b800;
+}
+.slick-next:before {
+  color: #f8b800;
+}

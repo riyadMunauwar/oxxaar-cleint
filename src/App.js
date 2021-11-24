@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { auth } from "./services/firebaseInit";
+import { getAllProduct } from "./store/products";
+import { getAllOrder } from "./store/orders";
+import { authStateChange } from "./store/auth";
+import { getAllCategory } from "./store/category";
+import Home from "./pages/homePage";
+import Header from "./components/header";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signupPage";
+import ProductDetailsPage from "./pages/productDetailsPage";
+import CartPage from "./pages/cartPage";
+import CheckOutPage from "./pages/checkoutPage";
+import CategoryPage from "./pages/categoryPage";
+import ResultPage from "./pages/resultPage";
+import WishPage from "./pages/wishPage";
+import UserDashboardPage from "./pages/userDashboardPage";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProduct());
+    dispatch(getAllCategory());
+    dispatch(getAllOrder());
+  }, []);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(authStateChange(user));
+    }
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Switch>
+        <Route
+          path="/product/:productSlug/:productId"
+          component={ProductDetailsPage}
+        />
+        <Route path="/collection/:category" component={CategoryPage} />
+        <Route path="/profile" component={UserDashboardPage} />
+        <Route path="/result" component={ResultPage} />
+        <Route path="/cart" component={CartPage} />
+        <Route path="/wish-list" component={WishPage} />
+        <Route path="/checkout" component={CheckOutPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignUpPage} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </>
   );
 }
 
