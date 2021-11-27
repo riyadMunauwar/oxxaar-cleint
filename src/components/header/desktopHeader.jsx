@@ -6,6 +6,7 @@ import { logOutUser } from "../../store/auth";
 import IconWithBadge from "./iconWithBadge";
 import Search from "./search";
 import classes from "./Header.module.css";
+import Logo from "../../static/logo-oxaar.png";
 
 const { Link } = Typography;
 
@@ -44,9 +45,9 @@ function DesktopHeader(props) {
             <Image
               style={{ cursor: "pointer" }}
               onClick={goToHomeHandeler}
-              height={20}
+              height={70}
               preview={false}
-              src="https://www.bdshop.com/pub/media/logo/stores/1/BDSHOP-LOGO-2021.png"
+              src={Logo}
             />
           </div>
           <div className="col-md-5 mb-5 mb-md-0">

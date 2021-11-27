@@ -18,6 +18,7 @@ import CategoryPage from "./pages/categoryPage";
 import ResultPage from "./pages/resultPage";
 import WishPage from "./pages/wishPage";
 import UserDashboardPage from "./pages/userDashboardPage";
+import AdminPage from "./pages/adminPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
           path="/product/:productSlug/:productId"
           component={ProductDetailsPage}
         />
+        <Route path="/admin" component={AdminPage} />
         <Route path="/collection/:category" component={CategoryPage} />
         <Route path="/profile" component={UserDashboardPage} />
         <Route path="/result" component={ResultPage} />

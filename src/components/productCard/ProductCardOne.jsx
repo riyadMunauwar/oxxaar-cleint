@@ -1,28 +1,28 @@
 import { Typography, Rate, Badge } from "antd";
 import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 import AddToCart from "../common/addToCart";
 import AddToWishList from "../common/addToWishList";
 const { Title, Link, Text } = Typography;
 
 function ProductCardOne({ item }) {
-  const history = useHistory();
-  const goToHandeler = () => {
-    history.push(`/product/${item.slug}/${item._id}`);
-  };
+  // const history = useHistory();
+  // const goToHandeler = () => {
+  //   history.push(`/product/${item.slug}/${item._id}`);
+  // };
   return (
     <div className="mb-4">
       <Badge.Ribbon text="80% Off">
         <div className="product border">
           <div className="product-header"></div>
-          <div onClick={goToHandeler} className="productbody">
+          <div className="productbody">
             <img
               className="img-fluid rounded"
               src={item.photo}
               alt={item.name}
             />
           </div>
-          <div onClick={goToHandeler} className="product-footer p-3">
+          <div className="product-footer p-3">
             <Link>
               <Title type="danger" level={5}>
                 {item.name}

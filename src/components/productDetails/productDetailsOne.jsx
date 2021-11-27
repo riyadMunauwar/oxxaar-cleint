@@ -90,8 +90,8 @@ function ProductDetailsOne({ item }) {
                 <Button type="primary">+</Button>
               </div>
               <div className="mb-3">
-                {/* <AddToCart productId={item._id} />
-                <AddToWishList productId={item._id} /> */}
+                <AddToCart productId={item._id} />
+                <AddToWishList productId={item._id} />
               </div>
               <div>
                 <Text>

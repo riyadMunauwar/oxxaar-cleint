@@ -1,6 +1,6 @@
 import { Avatar, Space, Table, Popconfirm, Button } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import AddToCart from "../components/productCard/addToCart";
+import AddToCart from "../components/common/addToCart";
 
 export default function WishPage() {
   //   const dispatch = useDispatch();
